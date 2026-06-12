@@ -1,46 +1,29 @@
-# 🛡️ CyberSentinel AI
+# CyberSentinel AI
 
-## AI-Powered Cybersecurity Analysis Platform
+CyberSentinel AI is an AI-powered cybersecurity analysis platform designed to detect malicious activities and analyze network traffic using machine learning techniques.
 
-CyberSentinel AI is a production-level AI-powered cybersecurity analysis platform built using Streamlit, FastAPI, Machine Learning, and SQLite.
+The project combines Streamlit, FastAPI, SQLite, and Docker to provide an interactive cybersecurity dashboard with reporting and monitoring capabilities.
 
-The system provides:
+## Features
 
-* Intrusion Detection using NSL-KDD dataset
-* Real-time LOG threat monitoring
-* Generic cybersecurity CSV analysis
-* SOC-style dashboard
-* Automated incident response recommendations
-* PDF & CSV reporting
-* REST API support
-* Docker deployment support
+### Intrusion Detection
 
----
-
-# 🚀 Features
-
-## 🤖 NSL-KDD Intrusion Detection
-
-* Upload NSL-KDD TXT/CSV datasets
+* NSL-KDD dataset support
 * Automatic preprocessing
-* One-hot encoding
-* Feature alignment using trained feature names
-* ML prediction using Random Forest
-* Confidence score using `predict_proba`
-* Attack rate calculation
+* Feature alignment
+* Random Forest model
+* Confidence score calculation
 * Risk classification
 * Feature importance visualization
 
----
+### Log Analysis
 
-## 📜 LOG Threat Detection
-
-Detect suspicious activity inside:
+Detect suspicious activities from:
 
 * `.log`
 * `.txt`
 
-Using rule-based keyword detection:
+Supported keywords include:
 
 ```text
 failed
@@ -56,78 +39,43 @@ virus
 threat
 ```
 
----
+### CSV Analysis
 
-## 📁 Generic CSV Analysis
-
-Analyze cybersecurity-related datasets:
-
-* Missing values
-* Numeric columns
-* Text columns
-* Suspicious column detection
+* Missing values analysis
 * Dataset statistics
-* Export reports
+* Suspicious column detection
+* Report generation
 
----
+### Dashboard
 
-## 🔥 Real-time Monitoring
-
-Monitor live logs continuously:
-
-* Threat detection
-* Suspicious keyword matching
-* Risk levels
-* Real-time SOC alerts
-
----
-
-## 📊 Dashboard
-
-SOC-style dark cybersecurity dashboard:
-
-* Threat metrics
-* Attack statistics
+* Threat statistics
 * Historical analysis
 * Real-time alerts
 * Interactive charts
 
----
+### Reporting
 
-## 📄 Report Generation
+Supported formats:
 
-Export:
+* PDF
+* CSV
 
-* PDF Reports
-* CSV Reports
+### API Support
 
-Using:
-
-* ReportLab
-* Pandas
-
----
-
-## 📡 API Support
-
-FastAPI backend included.
-
-Swagger Docs:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-Endpoints:
+Available endpoints:
 
 * `/predict-nsl`
 * `/analyze-log`
 * `/history`
 * `/health`
 
----
+Swagger documentation:
 
-# 🧠 Technologies Used
+```text
+http://127.0.0.1:8000/docs
+```
+
+## Technologies Used
 
 * Python
 * Streamlit
@@ -141,9 +89,7 @@ Endpoints:
 * ReportLab
 * Docker
 
----
-
-# 📂 Project Structure
+## Project Structure
 
 ```text
 CyberSentinel_AI_Project/
@@ -165,164 +111,63 @@ CyberSentinel_AI_Project/
 └── assets/
 ```
 
----
+## Installation
 
-# ⚙️ Installation
-
-## 1️⃣ Clone Repository
+Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/CyberSentinel-AI.git
-cd CyberSentinel-AI
+git clone https://github.com/AbdullahSufian/CyberSentinel_AI_Project.git
+cd CyberSentinel_AI_Project
 ```
 
----
-
-## 2️⃣ Install Dependencies
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-# ▶️ Run Streamlit Dashboard
+Run Streamlit:
 
 ```bash
-streamlit run app.py --server.port 8599
+streamlit run app.py
 ```
 
-Open:
-
-```text
-http://localhost:8599
-```
-
----
-
-# ▶️ Run FastAPI Backend
+Run FastAPI:
 
 ```bash
 python -m uvicorn api:app --reload
 ```
 
-Open:
+## Docker
 
-```text
-http://127.0.0.1:8000/docs
-```
-
----
-
-# 🔐 Login
-
-Default password:
-
-```text
-admin123
-```
-
-Can be changed using environment variables.
-
----
-
-# 🐳 Docker Support
-
-## Build and Run
+Run the entire project using Docker Compose:
 
 ```bash
 docker compose up --build
 ```
 
----
+Services:
 
-# 📡 Real-time Monitoring
+* Streamlit Dashboard: http://localhost:8501
+* FastAPI Docs: http://localhost:8000/docs
 
-Create:
+Stop containers:
 
-```text
-logs/live.log
+```bash
+docker compose down
 ```
 
-Example:
+## Future Improvements
 
-```text
-Unauthorized login attempt
-Port scan detected
-Malware attack blocked
-```
+* Deep Learning models
+* User authentication
+* Cloud deployment
+* CI/CD pipeline
+* Monitoring and logging
+* Threat intelligence integration
 
-The system will automatically monitor and detect suspicious activities.
-
----
-
-# 📈 Machine Learning Workflow
-
-1. Load NSL-KDD dataset
-2. Assign column names
-3. Drop labels
-4. Apply one-hot encoding
-5. Align features
-6. Scale features
-7. Predict attacks
-8. Generate confidence scores
-9. Visualize results
-
----
-
-# 🛡️ Automated Incident Response
-
-The system automatically generates:
-
-* Threat severity
-* SOC recommendations
-* Isolation suggestions
-* Monitoring recommendations
-
-Based on attack rate.
-
----
-
-# 📄 Reports
-
-Generated reports include:
-
-* Threat summary
-* Attack statistics
-* Confidence scores
-* Suspicious events
-* Risk classification
-
-Formats:
-
-* PDF
-* CSV
-
----
-
-# 👨‍💻 Author
+## Author
 
 Abdullah Sufian
 
-Cybersecurity & Data Science Student
-AI Security Enthusiast
-
----
-
-# ⭐ Future Improvements
-
-* Deep Learning Models
-* SIEM Integration
-* Threat Intelligence APIs
-* WebSocket Live Monitoring
-* Cloud Deployment
-* User Management
-* JWT Authentication
-* ELK Stack Integration
-* Kafka Streaming
-
----
-
-# 📜 License
-
-MIT License
+Cybersecurity and Data Science Student

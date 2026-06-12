@@ -423,12 +423,12 @@ st.sidebar.markdown("# 🛡️ CyberSentinel AI")
 page = st.sidebar.radio(
     "Navigation",
     [
-        "🏠 Dashboard",
-        "🤖 NSL-KDD Detection",
-        "📁 Generic CSV Analysis",
-        "📜 LOG Analysis",
-        "🔥 Real-time Monitoring",
-        "📊 History"
+        " Dashboard",
+        " NSL-KDD Detection",
+        " Generic CSV Analysis",
+        " LOG Analysis",
+        " Real-time Monitoring",
+        " History"
     ]
 )
 
@@ -446,7 +446,7 @@ if st.sidebar.button("Logout"):
 
 st.markdown("""
 <div class="hero">
-    <h1>🛡️ CyberSentinel AI</h1>
+    <h1> CyberSentinel AI</h1>
     <p>Production SOC Platform: ML Detection, LOG Analysis, Real-time Monitoring, Email Alerts, API, Docker.</p>
 </div>
 """, unsafe_allow_html=True)
@@ -456,7 +456,7 @@ st.markdown("""
 # DASHBOARD
 # =========================
 
-if page == "🏠 Dashboard":
+if page == " Dashboard":
     st.subheader("📡 SOC Dashboard")
 
     history = load_history()
@@ -482,7 +482,7 @@ if page == "🏠 Dashboard":
         st.subheader("Recent History")
         st.dataframe(history.head(20), use_container_width=True)
 
-    st.subheader("🔥 Latest Real-time Alerts")
+    st.subheader(" Latest Real-time Alerts")
     st.dataframe(alerts, use_container_width=True)
 
 
@@ -490,7 +490,7 @@ if page == "🏠 Dashboard":
 # NSL-KDD DETECTION
 # =========================
 
-elif page == "🤖 NSL-KDD Detection":
+elif page == " NSL-KDD Detection":
     uploaded_file = st.file_uploader(
         "Upload NSL-KDD TXT/CSV",
         type=["txt", "csv"]
@@ -547,7 +547,7 @@ elif page == "🤖 NSL-KDD Detection":
 
             if attacks > 0:
                 st.markdown(
-                    f"<div class='alert-box'>🚨 Threat Detected | Risk: {status} | Attack Rate: {attack_rate}%</div>",
+                    f"<div class='alert-box'> Threat Detected | Risk: {status} | Attack Rate: {attack_rate}%</div>",
                     unsafe_allow_html=True
                 )
 
@@ -567,7 +567,7 @@ Time: {datetime.now()}
                 )
             else:
                 st.markdown(
-                    "<div class='safe-box'>✅ No threats detected.</div>",
+                    "<div class='safe-box'> No threats detected.</div>",
                     unsafe_allow_html=True
                 )
 
@@ -615,7 +615,7 @@ Time: {datetime.now()}
 
             st.subheader("Automated Incident Response")
             for rec in get_recommendations(attack_rate):
-                st.write(f"✅ {rec}")
+                st.write(f" {rec}")
 
             summary = pd.DataFrame({
                 "Metric": [
@@ -656,7 +656,7 @@ Time: {datetime.now()}
 # GENERIC CSV
 # =========================
 
-elif page == "📁 Generic CSV Analysis":
+elif page == " Generic CSV Analysis":
     uploaded_file = st.file_uploader(
         "Upload Generic Cybersecurity CSV",
         type=["csv"]
@@ -756,7 +756,7 @@ elif page == "📁 Generic CSV Analysis":
 # LOG ANALYSIS
 # =========================
 
-elif page == "📜 LOG Analysis":
+elif page == " LOG Analysis":
     uploaded_file = st.file_uploader(
         "Upload LOG/TXT file",
         type=["log", "txt"]
@@ -786,12 +786,12 @@ elif page == "📜 LOG Analysis":
 
             if attacks > 0:
                 st.markdown(
-                    f"<div class='alert-box'>🚨 Suspicious Logs Detected | Risk: {status}</div>",
+                    f"<div class='alert-box'> Suspicious Logs Detected | Risk: {status}</div>",
                     unsafe_allow_html=True
                 )
             else:
                 st.markdown(
-                    "<div class='safe-box'>✅ No suspicious logs detected.</div>",
+                    "<div class='safe-box'> No suspicious logs detected.</div>",
                     unsafe_allow_html=True
                 )
 
@@ -847,8 +847,8 @@ elif page == "📜 LOG Analysis":
 # REAL-TIME MONITORING
 # =========================
 
-elif page == "🔥 Real-time Monitoring":
-    st.subheader("🔥 Real-time LOG Monitoring")
+elif page == " Real-time Monitoring":
+    st.subheader(" Real-time LOG Monitoring")
 
     log_path = st.text_input(
         "LOG file path",
@@ -899,9 +899,9 @@ elif page == "🔥 Real-time Monitoring":
                     c4.metric("Threat Rate", f"{attack_rate}%")
 
                     if attacks > 0:
-                        st.error(f"🚨 Real-time Threat Detected | Risk: {status}")
+                        st.error(f" Real-time Threat Detected | Risk: {status}")
                     else:
-                        st.success("✅ Live logs clean.")
+                        st.success(" Live logs clean.")
 
                     st.dataframe(
                         df_live[df_live["Prediction_Result"] == "Attack"].head(100),
@@ -916,8 +916,8 @@ elif page == "🔥 Real-time Monitoring":
 # HISTORY
 # =========================
 
-elif page == "📊 History":
-    st.subheader("📊 Analysis History")
+elif page == " History":
+    st.subheader(" Analysis History")
 
     history = load_history()
     st.dataframe(history, use_container_width=True)
@@ -929,7 +929,7 @@ elif page == "📊 History":
         mime="text/csv"
     )
 
-    st.subheader("🔥 Real-time Alerts History")
+    st.subheader(" Real-time Alerts History")
     alerts = load_realtime_alerts()
     st.dataframe(alerts, use_container_width=True)
 

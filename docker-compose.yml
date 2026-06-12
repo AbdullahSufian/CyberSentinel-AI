@@ -2,34 +2,31 @@ services:
   cybersentinel-app:
     build: .
     container_name: cybersentinel_streamlit
-
+    command: streamlit run app.py --server.address=0.0.0.0 --server.port=8501
     ports:
       - "8501:8501"
-
     volumes:
-      - .:/app
       - ./logs:/app/logs
-
+      - ./cybersentinel.db:/app/cybersentinel.db
     environment:
       APP_PASSWORD: admin123
-
       EMAIL_ALERTS_ENABLED: "false"
-
       SMTP_HOST: smtp.gmail.com
       SMTP_PORT: 587
       SMTP_USER: your_email@gmail.com
       SMTP_PASSWORD: your_app_password
       ALERT_RECEIVER: receiver_email@gmail.com
+    restart: unless-stopped
 
   cybersentinel-api:
     build: .
-
     container_name: cybersentinel_api
-
     command: uvicorn api:app --host 0.0.0.0 --port 8000
-
     ports:
       - "8000:8000"
-
     volumes:
-      - .:/app
+      - ./logs:/app/logs
+      - ./cybersentinel.db:/app/cybersentinel.db
+    environment:
+      APP_PASSWORD: admin123
+    restart: unless-stopped
